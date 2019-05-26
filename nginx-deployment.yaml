@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: nginx-deployment
 spec:
+  selector:
+    matchLabels:
+        app: nginx
   replicas: 3
   template:
     metadata:
