@@ -19,10 +19,10 @@ spec:
           ports: 
             - 
               containerPort: 80
-      volumeMounts: 
-        - 
-          mountPath: /usr/share/nginx/html
-          name: nginx-vol
+          volumeMounts: 
+            - 
+              mountPath: /usr/share/nginx/html
+              name: nginx-vol
       volumes: 
         - 
           emptyDir: {}
