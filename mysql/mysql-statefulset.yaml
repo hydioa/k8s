@@ -39,7 +39,7 @@ spec:
         - name: config-map
           mountPath: /mnt/config-map
       - name: clone-mysql
-        image: gcr.io/google-samples/xtrabackup:1.0
+        image: ipunktbs/xtrabackup:latest
         command:
         - bash
         - "-c"
@@ -79,7 +79,7 @@ spec:
         resources:
           requests:
             cpu: 500m
-            memory: 1Gi
+            memory: 500m
         livenessProbe:
           exec:
             command: ["mysqladmin", "ping"]
@@ -94,7 +94,7 @@ spec:
           periodSeconds: 2
           timeoutSeconds: 1
       - name: xtrabackup
-        image: gcr.io/google-samples/xtrabackup:1.0
+        image: ipunktbs/xtrabackup:latest
         ports:
         - name: xtrabackup
           containerPort: 3307
