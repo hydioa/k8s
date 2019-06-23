@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ceph-test-pod
+  namespace: default
+spec:
+  containers:
+  - image: nginx:latest
+    imagePullPolicy: IfNotPresent
+    name: nginx
+    resources: {}
+    volumeMounts:
+    - name: nginxpath
+      mountPath: /usr/share/nginx/html
+  volumes:
+    - name: nginxpath
+      persistentVolumeClaim:
+        claimName: ceph-dynamic
+		
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ceph-dynamic
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ceph-dynamic
+  resources:
+    requests:
+      storage:20Mi
