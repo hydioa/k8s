@@ -12,6 +12,5 @@ parameters:
   userId: admin
   userSecretName: ceph-secret
   userSecretNamespace: default
-  fsType: xfs
   imageFormat: "2"
   imageFeatures: "layering"
