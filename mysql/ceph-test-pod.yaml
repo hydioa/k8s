@@ -15,15 +15,4 @@ spec:
     - name: nginxpath
       persistentVolumeClaim:
         claimName: ceph-dynamic
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ceph-dynamic
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ceph-dynamic
-  resources:
-    requests:
-      storage:20Mi
+
