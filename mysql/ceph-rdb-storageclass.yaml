@@ -2,7 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: ceph-dynamic
-provisioner: kubernetes.io/rbd
+provisioner: ceph.com/rbd
 parameters:
   monitors: 192.168.188.16:6789
   adminId: admin

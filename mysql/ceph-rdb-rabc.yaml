@@ -1,0 +1,18 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: rbd-provision
+subjects:
+- kind: ServiceAccount
+  name: rbd-provision
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: system:controller:persistent-volume-binder
+  apiGroup: rbac.authorization.k8s.io
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata: 
+  name: rbd-provision
+  namespace: default
