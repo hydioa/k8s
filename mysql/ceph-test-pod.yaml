@@ -8,7 +8,6 @@ spec:
   - image: nginx:latest
     imagePullPolicy: IfNotPresent
     name: nginx
-    resources: {}
     volumeMounts:
     - name: nginxpath
       mountPath: /usr/share/nginx/html
