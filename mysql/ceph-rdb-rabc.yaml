@@ -1,7 +1,7 @@
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: rbd-provision
+  name: rbd-provisioner-rabc
 subjects:
 - kind: ServiceAccount
   name: rbd-provision
@@ -11,8 +11,10 @@ roleRef:
   name: system:controller:persistent-volume-binder
   apiGroup: rbac.authorization.k8s.io
 ---
-kind: ServiceAccount
 apiVersion: v1
-metadata: 
+kind: ServiceAccount
+metadata:
   name: rbd-provision
   namespace: default
+secrets:
+- name: ceph-secret
