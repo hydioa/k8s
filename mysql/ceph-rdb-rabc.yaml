@@ -16,5 +16,3 @@ kind: ServiceAccount
 metadata:
   name: rbd-provision
   namespace: default
-#secrets:
-#- name: ceph-secret
