@@ -15,7 +15,7 @@ spec:
       serviceAccountName: rbd-provision
       containers:
       - name: rbd-provisioner
-        image: "quay.io/external_storage/rbd-provisioner:latest"
+        image: quay.io/external_storage/rbd-provisioner:latest
         env:
         - name: PROVISIONER_NAME
           value: ceph.com/rbd
