@@ -19,3 +19,4 @@ spec:
         env:
         - name: PROVISIONER_NAME
           value: ceph.com/rbd
+      serviceAccount: rbd-provision
