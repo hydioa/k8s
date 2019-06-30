@@ -1,2 +1,31 @@
+资源： 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/mandatory.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/baremetal/service-nodeport.yaml
+
+命令 ：
+
+docker pull quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
+
+kubectl apply  -f mandatory.yaml -n ingress-nginx 
+kubectl apply  -f service-nodeport.yaml  -n ingress-nginx 
+
+
+kubectl get namespace
+kubectl get po -n ingress-nginx
+kubectl logs nginx-ingress-controller-5694ccb578-k52cz 
+
+kubectl -n ingress-nginx get svc    
+IC_IP=192.168.188.16 
+IC_HTTPS_PORT=30079
+                  
+kubectl -n ingress-nginx create -f cafe-secret.yaml   
+kubectl -n ingress-nginx create -f cafe.yaml	      
+kubectl -n ingress-nginx create -f cafe-Ingress.yaml  
+kubectl -n ingress-nginx get ingress   			      
+kubectl -n ingress-nginx describe ingress cafe-ingress
+kubectl -n ingress-nginx get svc 
+
+
+
+curl --resolve cafe.example.com:$IC_HTTPS_PORT:$IC_IP https://cafe.example.com:$IC_HTTPS_PORT/tea --insecure
+curl --resolve cafe.example.com:$IC_HTTPS_PORT:$IC_IP https://cafe.example.com:$IC_HTTPS_PORT/coffee --insecure
