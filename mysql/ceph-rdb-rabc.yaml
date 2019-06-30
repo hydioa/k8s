@@ -15,5 +15,4 @@ roleRef:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: rbd-provision
-  namespace: default
+  name: rbd-provisioner

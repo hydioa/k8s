@@ -1,0 +1,8 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ceph-mon-1
+  namespace: ceph
+spec:
+  type: ExternalName
+  externalName: 192.168.188.16.xip.io

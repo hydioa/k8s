@@ -4,7 +4,7 @@ metadata:
   name: ceph-dynamic
 provisioner: ceph.com/rbd
 parameters:
-  monitors: 192.168.188.16:6789
+  monitors: ceph-monitoring.default.svc.cluster.local.:6789
   adminId: admin
   adminSecretName: ceph-secret
   adminSecretNamespace: default

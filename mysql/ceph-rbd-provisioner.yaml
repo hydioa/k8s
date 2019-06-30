@@ -12,11 +12,22 @@ spec:
       labels:
         app: rbd-provisioner
     spec:
-      serviceAccountName: rbd-provision
       containers:
       - name: rbd-provisioner
-        image: quay.io/external_storage/rbd-provisioner:latest
+        image: "quay.io/external_storage/rbd-provisioner:latest"
         env:
-        - name: PROVISIONER_NAME
-          value: ceph.com/rbd
-      serviceAccount: rbd-provision
+          - name: PROVISIONER_NAME
+            value: ceph.com/rbd
+        volumeMounts:
+          - name: ceph-conf-cm
+            mountPath: /etc/ceph/ceph.conf
+          - name: ceph-client-conf-cm
+            mountPath: /etc/ceph/ceph.client.admin.keyring
+      volumes:
+        - configMap:
+            name: ceph-conf
+          name: ceph-conf-cm
+        - configMap:
+            name: ceph-client-conf
+          name: ceph-client-conf-cm
+      serviceAccount: rbd-provisioner
