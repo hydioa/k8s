@@ -1,0 +1,14 @@
+说明：docker 镜像部署ceph
+https://github.com/rook/rook/tree/release-1.0/cluster/examples/kubernetes/ceph/
+
+#rook
+#https://github.com/rook/rook/tree/release-1.0/cluster/examples/kubernetes/ceph
+#clone了代码后去对应目录执行了
+#kubectl create -f common.yaml
+#kubectl create -f operator.yaml
+#kubectl create -f cluster.yaml
+
+
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/common.yaml
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/operator.yaml
+kubectl apply -f https://raw.githubusercontent.com/rook/rook/master/cluster/examples/kubernetes/ceph/cluster.yaml

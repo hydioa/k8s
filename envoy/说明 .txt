@@ -1,0 +1,23 @@
+https://github.com/resouer/kubernetes-initializer-tutorial
+
+1£¬download and clone
+git clone https://github.com/resouer/kubernetes-initializer-tutorial.git
+
+2£¬Store the Envoy configuration in a ConfigMap
+ 	kubectl create configmap envoy --from-file envoy.json
+
+
+3£¬ Create the Envoy Initializer ConfigMap 
+	kubectl apply -f configmaps/envoy-initializer.yaml
+ 4£¬Create the Envoy Initializer Deployment
+	kubectl apply -f deployments/envoy-initializer.yaml
+
+
+
+
+
+Cleaning Up
+
+kubectl delete initializerconfiguration envoy
+kubectl delete deployment envoy-initializer helloworld helloworld-with-annotation
+kubectl delete configmaps envoy envoy-initializer

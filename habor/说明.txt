@@ -1,0 +1,23 @@
+install docker-compse：
+1,os command
+	#wget http://harbor.orientsoft.cn/harbor-v1.5.0/harbor-offline-installer-v1.5.0.tgz
+	#sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	chmod +x /usr/local/bin/docker-compose
+	docker-compose --version
+2,docker container
+	sudo curl -L --fail https://github.com/docker/compose/releases/download/1.24.0/run.sh -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
+	docker-compose --version
+3, 修改默认路径
+   docker-compose.yml  /data/--->/opt/
+4, 修改默认端口
+    docker-compose.yml
+   
+      ports:
+        8999:80
+      - 8843:443
+	  
+	  
+    common/templates/registry/config.yml
+	realm: $public_url:8999/service/token
+	  
