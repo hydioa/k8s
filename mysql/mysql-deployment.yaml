@@ -18,7 +18,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 4Gi
 ---
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -47,7 +47,7 @@ spec:
           name: mysql
         volumeMounts:
         - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+          mountPath: /opt/data/mysql
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
